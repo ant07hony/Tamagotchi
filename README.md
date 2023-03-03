@@ -104,34 +104,34 @@ Commit messages should be in the present tense, e.g., "Style game board" instead
 
 > Note: Games are listed in approximate order of increasing difficulty.
 > 
-1. **Spaceman**
+1. Tamagotchi
+    - A good icebox feature (optional feature) is to allow the creatures to ‘level’ up after a certain amount of interactions / time.
+    - May include interaction animations or asset changes.
+2. Trivia Game 
+3. **Spaceman - variant on “hangman”**
+    - Will require keyboard event listeners
     - A good icebox feature (optional feature) is to allow the player to choose from categories of words.
-2. **Concentration (Memory Game)**
+4. **Concentration (Memory Game)**
     - Use "cards" or other theme
     - Will need to display "wrong" guess until a timer expires or until the next click.
     - Must lose after a certain amount of time or after X number of bad guesses.
-3. **Simon**
-    - Requires audio
-4. **Mastermind** (Guess the Code)
-5. **Minesweeper**
+5. **Simon**
+    - Requires asynchronous interactions and [Audio playback](https://www.notion.so/Playing-Audio-in-the-Browser-55072f2ccb7948d8a22f5aa18f45c0a9)
+6. **Mastermind** (Guess the Code)
+7. **Minesweeper**
     - Must implement "flood" feature
-6. **Blackjack**
+8. **Blackjack**
     - Must implement wagering feature
     - Do not have to implement splitting hands
-7. **Slot Machine**
+9. **Slot Machine**
     - Must implement wagering feature
-8. **Checkers**
+    - Must implement css animation for slot rollers
+10. **Checkers**
     - No AI required - player vs. player is fine
-9. **Mancala**
-    - Implementing "capturing" is not required
-10. **Roulette**
-    - Must implement wagering feature
 11. **Video Poker**
     - Must implement wagering feature
-12. **Craps**
-    - Must implement wagering feature
-13. **Solitaire**
-14. **Battleship**
+12. **Solitaire**
+13. **Battleship**
     - Requires some AI to implement the computer opponent
 
 **Only the above games are approved.  Any deviation, which is extremely discouraged, must receive approval from your instructor before starting your planning (wireframes & pseudocode)!**
