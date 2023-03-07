@@ -1,3 +1,52 @@
+* {
+    box-sizing: border-box;
+     border: solid red; 
+}
+
+html {
+    border-radius: 30 px;
+    border-color: black solid 1px;
+}
+
+/*---------- tamagotchi view title ----------*/
 h1 {
+    width: 100%;
+    height: 100%;
+    display: ;
+    text-align: center;
+    border: 1 px solid black;
+    border-radius: 30 px;
+    border-color: black solid 1px;
     
+
+}
+
+/*----------- name and age ---------*/
+.h2 {
+    display: inline-flex;
+    justify-content: space-evenly;
+
+    width: 100%;
+}
+
+#name {
+    align-content: flex-start;
+}
+
+.care-center {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    
+    
+}
+
+
+
+
+/*-------------- dynamic progress bar ------------*/
+.bar {
+    width: 20%;
+
 }

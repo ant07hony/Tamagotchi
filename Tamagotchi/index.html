@@ -10,10 +10,41 @@
 </head>
 <body>
     <h1 id="title">Tamagotchi View</h1>
-    <h2 id="name">Name</h2>
-    <h2 id="age">Age</h2>
+
+    <div class="h2">
+        <h2 id="name">Name</h2>
+
+        <h2 id="age">Age</h2>
+    </div>
+
     <section>emoticon image</section>
-    
+
+    <section class="care-center">
+        <div class="play-play">
+            <h3>Play-Play</h3>
+            <div id="playBar" class="bar">20%</div>
+        
+            <br>
+            <button class="playBtn" onclick="move()">PLAY</button> 
+        </div>
+
+        <div class="yummies">
+            <h3>Yummies</h3>
+            <div id="eatBar" class="bar">20%</div>
+        
+            <br>
+            <button class="eatBtn" onclick="move()">EAT</button> 
+        </div>
+
+        <div class="potty">
+            <h3>Potty</h3>
+            <div id="pottyBar" class="bar">20%</div>
+        
+            <br>
+            <button class="cleanBtn" onclick="move()">CLEAN</button> 
+        </div>
+    </section>
+
 
 </body>
 </html>
