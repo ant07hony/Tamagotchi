@@ -3,50 +3,48 @@
      border: solid red; 
 }
 
-html {
-    border-radius: 30 px;
-    border-color: black solid 1px;
-}
+body {
+    margin: 0;
+    font-family: Helvetica;
+  }
 
 /*---------- tamagotchi view title ----------*/
 h1 {
     width: 100%;
     height: 100%;
-    display: ;
     text-align: center;
     border: 1 px solid black;
     border-radius: 30 px;
-    border-color: black solid 1px;
-    
-
 }
 
 /*----------- name and age ---------*/
 .h2 {
     display: inline-flex;
-    justify-content: space-evenly;
+    justify-content: flex-start; 
 
     width: 100%;
 }
 
 #name {
-    align-content: flex-start;
+    
 }
 
 .care-center {
+    display: inline-flex;
+    flex-wrap: wrap;
     width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    
-    
 }
 
 
 
 
 /*-------------- dynamic progress bar ------------*/
-.bar {
-    width: 20%;
+.play-play {
+    display: inline-grid;
+    width: 100%;
+}
 
+#yummies {
+    display: flex;
+    width: 100%;
 }
