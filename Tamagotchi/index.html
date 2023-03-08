@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/app.css">
     <script src="./js/app.js"></script>
     <title>Tamagotchi View</title>
@@ -21,20 +22,28 @@
     <div class="play">
         <h3 class="h3">Play:</h3>
         <div id="playBar" class="bar">0%</div>
-        <button class="btn" onclick="move()">PLAY</button> 
+        <button class="playBtn" onclick="move()">PLAY</button> 
     </div>
         
     <div class="yummies">
         <h3 class="h3">Yummies:</h3>
         <div id="eatBar" class="bar">0%</div>
-        <button class="btn" onclick="move()">EAT</button> 
+        <button class="yummyBtn" onclick="move()">EAT</button> 
     </div>
-            
-    <div class="potty">
+     
+    <!-- <div class="w3-light-grey"> -->
+    <div id="potty">
         <h3 class="h3">Potty:</h3>
-        <div id="pottyBar" class="bar">0%</div>
-        <button class="btn" onclick="move()">CLEAN</button> 
+        <div id="pottyBar" //class="w3-container w3-green//">0%</div>
+        <button class="pottyBtn" onclick="move()">CLEAN</button> 
     </div>
+    <!-- </div> -->
+
+    <!-- <div class="w3-light-grey" id="potty">
+        <h3 class="h3">Potty:</h3>
+        <div id="pottyBar" class="w3-container w3-green" style="width: 0%">0%</div>
+        <button id="btn" class="w3-button w3-green" onclick="move()">CLEAN</button> 
+        </div> -->
 </section>
     
 
