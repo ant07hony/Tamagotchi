@@ -1,5 +1,9 @@
   /*----- constants -----*/
-
+const faces = {
+    happy: '\( ͡> ω ͡<)/',
+    sad: '  \( ͡> ﹏ ͡<)/',
+    angry: '\( ͡> ෴ ͡<)/',
+}
 
   /*----- state variables -----*/
 
