@@ -16,15 +16,16 @@
   function move() {
     var elem = document.querySelectorAll(".bar"); 
     console.log(elem)  
-    var width = 20;
-    var id = setInterval(frame, 10);
+    var width = 0;
+    var id = setInterval(frame, 200);
     function frame() {
       if (width >= 100) {
         clearInterval(id);
       } else {
-        width++; 
-        elem.style.width = width + '%'; 
-        elem.innerHTML = width * 1  + '%';
+        return
+        // width++; 
+        // elem.style.width = width + '%'; 
+        // elem.innerHTML = width * 1  + '%';
       }
     }
   }
