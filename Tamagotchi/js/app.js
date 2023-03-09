@@ -58,24 +58,28 @@ function handleClick(evt) {
 
 //dynamic bar
   function move() {
-    let pottyBar = document.getElementById("pottyBar");   
-    let barStart = setTimeout(interval, 100)
-    
-    function interval() {
-    let pottyBarWidth = 0;
-    let barStart = setInterval(frame, 200);
-    function frame() {
-      if (pottyBarWidth >= 100 ) {
-        // clearTimeout(barStart)
-        clearInterval(barStart)
-      } else {
-          pottyBarWidth++; 
-          pottyBar.style.width = pottyBarWidth + '%'; 
-          pottyBar.innerHTML = pottyBarWidth * 1  + '%';
+    let pottyBar = document.getElementById("pottyBar"); 
+    let pottyBarWidth = 0;  
+    // let barStart = setTimeout(frame, 100)
+    // let barStart = setTimeout(interval, 100)
+    // function interval() {
+    // let pottyBarWidth = 0;
+    // for ( let pottyBarWidth = 0; pottyBarWidth >= 100; pottyBarWidth++){
+        let barStart = setInterval(frame, 200);
+        function frame() {
+            if (pottyBarWidth >= 100 ) {
+                // clearTimeout(barStart)
+                clearInterval(barStart)
+            } else {
+                pottyBarWidth++; 
+                pottyBar.style.width = pottyBarWidth + '%'; 
+                pottyBar.innerHTML = pottyBarWidth * 1  + '%';
+        
         } 
         }
     }
-    clearTimeout(barStart)
-}
+    //clearTimeout(barStart)
+    
+
 
   init()
