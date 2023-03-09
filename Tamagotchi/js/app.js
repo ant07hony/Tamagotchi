@@ -16,18 +16,22 @@ const faces = {
 
 /*----- cached elements  -----*/
 
+//variable for all button elements
 const btns = document.querySelectorAll('button')
-const bar = document.getElementById('bar')
+
+//variable for all progress bars
+const bar = document.querySelectorAll('#bar')
+
+//variables for each individual buttons
 const playBtn = document.querySelector('.playBtn')
-const yummyBtn = document.querySelector('.eatBtn')
+const eatBtn = document.querySelector('.eatBtn')
 const cleanBtn = document.querySelector('.cleanBtn')
 
+
+//variables for DOM
 const name = document.querySelector('#name').innerHTML = 'Name:'
-
 const playText = document.querySelector('.playH3').innerHTML = 'Play!'
-
 const eatText = document.querySelector('.eatH3').innerHTML = 'Eat!'
-
 const cleanText = document.querySelector('.cleanH3').innerHTML = 'Clean!'
 
 const cleanBar = document.getElementById('cleanBar')
@@ -35,13 +39,12 @@ const cleanBar = document.getElementById('cleanBar')
 
 
 /*----- event listeners -----*/
-//event listener for all buttons to add time to each
-//     btns.forEach(function(btn) {
-//     btn.addEventListener('click', barDecrement)
-// })
+//event listener for all buttons to add time to eachs respective bar
 
-// playBtn.addEventListener('click', handleClick)
+//playBtn.addEventListener('click', renderPlayBtn)
+
 // eatBtn.addEventListener('click', handleClick)
+
 // cBtn.addEventListener('click', handleClick)
 
 
@@ -59,13 +62,13 @@ function render() {
     //folder for all renders
 
     renderFace()
-    // renderName()   //-----works but is annoying in development while making    changes 
+    renderName()   //-----works but is annoying in development while making    changes 
     renderAge()
     //  renderPlayBtn()
     //  renderEatbtn()
     //  renderCleanBtn()
     // renderCleanBar()
-    // renderPlayBar()
+    renderPlayBar()
     // renderEatBar()
 
 
@@ -107,13 +110,10 @@ function renderAge() {
 function renderPlayBtn() {
     //when clicked, will decrease the playBar 5%(MVP)
     function barDecrement() {
-        if (playBarWidth.value = 100) {
-            return null
-        } else {
-            playBarWidth.value--
-        }
-    }
+        let playBarWidth = document.getElementById('playBar')
 
+
+}
 }
 
 // ( MVP )
@@ -161,16 +161,19 @@ function renderPlayBar() {
             clearInterval(barStart)
             let tomb = document.getElementById('name').value
             if (confirm(tomb + " has passed!") == true ) {
+            } else {
+                confirm("Your tama has passed!")
                 render()
             }
-        } else {
+        } if else {
             playBarWidth++;
             playBar.style.width = playBarWidth + '%';
             playBar.innerHTML = playBarWidth * 1 + '%';
-
+            
         }
     }
-
+    
+    
 }
 
 // ( MVP )
@@ -228,4 +231,3 @@ function renderCleanBar() {
 }
 
 init()
-
