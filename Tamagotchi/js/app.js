@@ -5,6 +5,8 @@ const faces = {
     angry: '\( ͡> ෴ ͡<)/', //80-100
 }
 
+
+
 /*----- state variables -----*/
 
 // play, eat and clean btn variables 
@@ -48,34 +50,39 @@ const cleanBar = document.getElementById('cleanBar')
 function init() {
     console.log('init works')
 
-    //render()
+    render()
 }
 
 // ( MVP )
-function render () {
+function render() {
 
     //folder for all renders
 
     renderFace()
-    renderName()
+    // renderName()   //-----works but is annoying in development while making    changes 
     renderAge()
-    renderPlayBtn()
-    renderEatbtn()
-    renderCleanBtn()
-    renderPlayBar()
-    renderEatBar()
-    renderCleanBar()
+    //  renderPlayBtn()
+    //  renderEatbtn()
+    //  renderCleanBtn()
+    // renderCleanBar()
+    // renderPlayBar()
+    // renderEatBar()
 
 
 }
 
 // ( MVP )
 function renderFace() {
+
     //healthy happy face
-    function startFace() {
-    const tamaFace = document.querySelector('.image')
-    tamaFace.innerText = faces['happy']
-}
+
+        function startFace() {
+        const tamaFace = document.querySelector('.image')
+        tamaFace.innerText = faces['happy']
+
+        // const tamaFace = document.querySelector('.image')
+        // tamaFace.innerText = faces['angry']
+    }
 
 }
 
@@ -83,12 +90,10 @@ function renderFace() {
 function renderName() {
     //prompt input box to name tamagotchi
     const name = prompt(" Welcome to Tamagotchi Survivor. Please name your 'Tama' ")
-    console.log(name)
-    if(name != null) {
-        document.getElementById('name').innerHTML = "Name: " + name 
-
-
+    if (name != null) {
+        document.getElementById('name').innerHTML = "Name: " + name
     }
+
 
 }
 
@@ -102,12 +107,12 @@ function renderAge() {
 function renderPlayBtn() {
     //when clicked, will decrease the playBar 5%(MVP)
     function barDecrement() {
-    if (playBarWidth.value = 100) {
-        return null
-    } else {
-        playBarWidth.value--
+        if (playBarWidth.value = 100) {
+            return null
+        } else {
+            playBarWidth.value--
+        }
     }
-}
 
 }
 
@@ -115,11 +120,11 @@ function renderPlayBtn() {
 function renderEatbtn() {
     //button should cause bar to minus 5%, then continue counting to 100%
 
-        //the attempt
+    //the attempt
     function btnClick(evt) {
-    const eatBar = document.getElementById('eatBar')
-    let eatBarWidth = eatBar.style.width
-    //console.log(eatBarWidth)
+        const eatBar = document.getElementById('eatBar')
+        let eatBarWidth = eatBar.style.width
+        //console.log(eatBarWidth)
         let barStart = setInterval(frame, 400);
         function frame() {
             if (eatBarWidth < 100) {
@@ -130,7 +135,7 @@ function renderEatbtn() {
             } else {
                 return
             }
-    }
+        }
     }
 
 
@@ -140,27 +145,31 @@ function renderEatbtn() {
 function renderCleanBtn() {
     //button should cause bar to minus 5%, then continue counting to 100%
 
-}
+} //not complete
 
 // ( MVP )
-function renderPlayBar(){
+function renderPlayBar() {
 
     //bar starts from 0% and increment to 100% when browser loads
     //formula from W3 schools webpage: progress bar center
 
-        let playBar = document.getElementById("playBar");
-        let playBarWidth = 0;
-        let barStart = setInterval(frame, 200);
-        function frame() {
-            if (playBarWidth >= 100) {
-                clearInterval(barStart)
-            } else {
-                playBarWidth++;
-                playBar.style.width = playBarWidth + '%';
-                playBar.innerHTML = playBarWidth * 1 + '%';
-    
+    let playBar = document.getElementById("playBar");
+    let playBarWidth = 0;
+    let barStart = setInterval(frame, 200);
+    function frame() {
+        if (playBarWidth >= 100) {
+            clearInterval(barStart)
+            let tomb = document.getElementById('name').value
+            if (confirm(tomb + " has passed!") == true ) {
+                render()
             }
+        } else {
+            playBarWidth++;
+            playBar.style.width = playBarWidth + '%';
+            playBar.innerHTML = playBarWidth * 1 + '%';
+
         }
+    }
 
 }
 
@@ -170,20 +179,24 @@ function renderEatBar() {
     //bar starts from 0% and increment to 100% when browser loads
     //formula from W3 schools webpage: progress bar center
 
-        let eatBar = document.getElementById("eatBar");
-        let eatBarWidth = 0;
-        let barStart = setInterval(frame, 200);
-        function frame() {
-            if (eatBarWidth >= 100) {
-                clearInterval(barStart)
-            } else {
-                eatBarWidth++;
-                eatBar.style.width = eatBarWidth + '%';
-                eatBar.innerHTML = eatBarWidth * 1 + '%';
-    
+    let eatBar = document.getElementById("eatBar");
+    let eatBarWidth = 0;
+    let barStart = setInterval(frame, 200);
+    function frame() {
+        if (eatBarWidth >= 100) {
+            clearInterval(barStart)
+            let tomb = document.getElementById('name').value
+            if (confirm(tomb + " has passed!") == true ) {
+                render()
             }
+        } else {
+            eatBarWidth++;
+            eatBar.style.width = eatBarWidth + '%';
+            eatBar.innerHTML = eatBarWidth * 1 + '%';
+
         }
     }
+}
 
 
 // ( MVP )
@@ -198,24 +211,21 @@ function renderCleanBar() {
     function frame() {
         if (cleanBarWidth >= 100) {
             clearInterval(barStart)
-        } else if ( cleanBarWidth.innerText <= 49) {
-            const tamaFace = document.querySelector('.image')
-     tamaFace.innerText = faces['happy']
-    //     } else if (50 <= 79){
-    //         const tamaFace = document.querySelector('.image')
-    //         tamaFace.innerText = faces['sad']
-          } else {
+            let tomb = document.getElementById('name').value
+            if (confirm(tomb + " has passed!") == true ) {
+                render()
+            }
+        } else {
             cleanBarWidth++;
             cleanBar.style.width = cleanBarWidth + '%';
             cleanBar.innerHTML = cleanBarWidth * 1 + '%';
-            const tamaFace = document.querySelector('.image')
-            tamaFace.innerText = faces['angry']
+            
 
         }
-    } 
+    }
 
 
 }
 
- init()
+init()
 
