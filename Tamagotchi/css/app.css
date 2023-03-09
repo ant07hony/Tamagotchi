@@ -40,11 +40,12 @@ h1 {
 
 
 
-#potty, .yummies, .play {
+#potty, #yummies, #play {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-between;
+    justify-content: baseline;
     padding: 2px;
     
 }
@@ -57,7 +58,7 @@ h1 {
 }
 /* .bar */ #pottyBar, #eatBar, #playBar {
     display: inline-block;
-    width: 90%;
+    width: 90em;
     border: 1px solid black;
     background-color: lightgray;
     text-align: center;
