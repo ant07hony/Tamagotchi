@@ -40,7 +40,7 @@ h1 {
 
 
 
-#potty, #yummies, #play {
+#clean, #eat, #play {
     display: flex;
     width: 100%;
     align-items: center;
@@ -57,7 +57,7 @@ h1 {
     text-align: center;
     
 }
-/* .bar */ #pottyBar, #eatBar, #playBar {
+/* .bar */ #cleanBar, #eatBar, #playBar {
     display: inline-block;
     width: 90%;
     border: 1px solid black;
@@ -67,7 +67,7 @@ h1 {
     margin: 0 10px;
 } 
 
-#playBtn, #yummyBtn, #pottyBtn {
+#playBtn, #eatBtn, #cleanBtn {
     text-align: center;
     justify-content: space-between;
     margin: 0;
