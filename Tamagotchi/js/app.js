@@ -48,14 +48,7 @@ const cleanBar = document.getElementById('cleanBar')
 function init() {
     console.log('init works')
 
-    // //playSwitch()
-    // startFace()
-    // pottyInterval()
-    // playInterval()
-    // yumInterval()
-    // btnClick()
-    // barDecrement()
-    render()
+    //render()
 }
 
 // ( MVP )
@@ -78,7 +71,7 @@ function render () {
 
 // ( MVP )
 function renderFace() {
-    //healthy happy face(MVP)
+    //healthy happy face
     function startFace() {
     const tamaFace = document.querySelector('.image')
     tamaFace.innerText = faces['happy']
@@ -88,7 +81,14 @@ function renderFace() {
 
 //( MVP ) 
 function renderName() {
-    //prompt input box to name tamagotchi(MVP)
+    //prompt input box to name tamagotchi
+    const name = prompt(" Welcome to Tamagotchi Survivor. Please name your 'Tama' ")
+    console.log(name)
+    if(name != null) {
+        document.getElementById('name').innerHTML = "Name: " + name 
+
+
+    }
 
 }
 
