@@ -49,25 +49,17 @@ function init() {
     playInterval()
     yumInterval()
     handleClick()
-    render()
-}
-
-function render() {
-    console.log('render works')
+    
 }
 
 function handleClick(evt) {
-    const btnClick = evt.target
-    //need logic to delay move() when btnClick
-    btnClick.addEventListener('click', function() {
-        let barStartReverse = setInterval(rev, 200);
-    function rev() {
-        if (bar < 100) {
-            clearInterval(barStartReverse)
+    //need logic to decrement the progress bars when btnClick
+    const bar = document.getElementById('bar')
+    let barWidth = 
+    btnClick.addEventListener('click', function(evt) {
+        bar.style.width 
     }
     }
-})
-}
 
 function startFace() {
     const tamaFace = document.querySelector('.image')

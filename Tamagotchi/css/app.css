@@ -51,14 +51,15 @@ h1 {
 }
 
 .h3 {
-    width: 20%;
+    width: 15%;
     justify-content: flex-end;
     margin: 0 10px 0 0;
     text-align: center;
+    
 }
 /* .bar */ #pottyBar, #eatBar, #playBar {
     display: inline-block;
-    width: 90em;
+    width: 90%;
     border: 1px solid black;
     background-color: lightgray;
     text-align: center;
