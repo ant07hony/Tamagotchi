@@ -15,6 +15,7 @@ const faces = {
 /*----- cached elements  -----*/
 
 const btns = document.querySelectorAll('button')
+const bar = document.getElementById('bar')
 const playBtn = document.querySelector('.playBtn')
 const yummyBtn = document.querySelector('.yummyBtn')
 const pottyBtn = document.querySelector('.pottyBtn')
@@ -42,11 +43,12 @@ btns.forEach(function(btn) {
 function init() {
     console.log('init works')
 
-    
+    //playSwitch()
     startFace()
-    potty()
-    play()
-    yum()
+    pottyInterval()
+    playInterval()
+    yumInterval()
+    handleClick()
     render()
 }
 
@@ -57,9 +59,15 @@ function render() {
 function handleClick(evt) {
     const btnClick = evt.target
     //need logic to delay move() when btnClick
-    
-
+    btnClick.addEventListener('click', function() {
+        let barStartReverse = setInterval(rev, 200);
+    function rev() {
+        if (bar < 100) {
+            clearInterval(barStartReverse)
     }
+    }
+})
+}
 
 function startFace() {
     const tamaFace = document.querySelector('.image')
@@ -68,24 +76,48 @@ function startFace() {
 
 
 //bar function for potty
-function potty() {
+function pottyInterval() {
     let pottyBar = document.getElementById("pottyBar");
     let pottyBarWidth = 0;
     let barStart = setInterval(frame, 200);
     function frame() {
         if (pottyBarWidth >= 100) {
             clearInterval(barStart)
-        } else {
+        } else if ( pottyBarWidth.innerText <= 49) {
+            const tamaFace = document.querySelector('.image')
+     tamaFace.innerText = faces['happy']
+    //     } else if (50 <= 79){
+    //         const tamaFace = document.querySelector('.image')
+    //         tamaFace.innerText = faces['sad']
+          } else {
             pottyBarWidth++;
             pottyBar.style.width = pottyBarWidth + '%';
             pottyBar.innerHTML = pottyBarWidth * 1 + '%';
+            const tamaFace = document.querySelector('.image')
+            tamaFace.innerText = faces['angry']
 
         }
     } 
 }
 
+// function playSwitch() {
+//         const playBar = document.querySelector('#playBar')
+//         console.log(playBar)
+//     if( width <= 49) {
+//         const tamaFace = document.querySelector('.image')
+// tamaFace.innerText = faces['happy']
+//     } else if ( playBar >= 50 <= 79){
+//         const tamaFace = document.querySelector('.image')
+//         tamaFace.innerText = faces['sad']
+//     } else {
+//         const tamaFace = document.querySelector('.image')
+//         tamaFace.innerText = faces['angry']
+//     }
+// }
+// playSwitch()
+
 //bar function for play
-function play() {
+function playInterval() {
         let playBar = document.getElementById("playBar");
         let playBarWidth = 0;
         let barStart = setInterval(frame, 200);
@@ -103,7 +135,7 @@ function play() {
 
 
 //bar function for yum
-function yum() {
+function yumInterval() {
         let yumBar = document.getElementById("eatBar");
         let yumBarWidth = 0;
         let barStart = setInterval(frame, 200);
