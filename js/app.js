@@ -35,13 +35,7 @@ const eatText = document.querySelector('.eatH3').innerHTML = 'Eat!'
 const cleanText = document.querySelector('.cleanH3').innerHTML = 'Clean!'
 
 /*----- event listeners -----*/
-//event listener for all buttons to add time to eachs respective bar
-
-//playBtn.addEventListener('click', renderPlayBar)
-
-// eatBtn.addEventListener('click', handleClick)
-
-// cBtn.addEventListener('click', handleClick)
+//event listener for all buttons to decrement time of each respective bar
 
 
 
@@ -65,11 +59,11 @@ function render() {
     //renderFace()
     //renderName()   //-----works but is annoying in development while making    changes 
     renderAge()
-    renderPlayBtn()
+    //renderPlayBtn()
     //  renderEatbtn()
     //  renderCleanBtn()
-    //renderCleanBar()
-    renderPlayBar()
+    renderCleanBar()
+    //renderPlayBar()  //-------this works...yaye
     // renderEatBar()
 
 
@@ -127,7 +121,7 @@ function renderPlayBtn() {
     //      pBBtn.style.width = playBarWidth + '%';
     //      playBar.innerHTML = playBarWidth % 1 + '%';
     // }
-    
+
 }
 
 
@@ -169,9 +163,9 @@ function renderCleanBtn() {
 
 // ( MVP )
 
-let playBarWidth = 0;
-let barStart
 
+let barWidth = 0;
+let barStart
 
 function renderPlayBar() {
 
@@ -180,6 +174,41 @@ function renderPlayBar() {
     // playBtn.addEventListener('click', renderPlayBtn)
 
     let playBar = document.getElementById("playBar")
+    let barStart = setInterval(frame, 200);
+    function frame() {
+        if (barWidth >= 100) {
+            barWidth = playBar
+            clearInterval(barStart)
+            playBtn.removeEventListener('click', function () {
+                barWidth -= 5;
+                playBar.style.width = barWidth + '%'
+                playBar.innerHTML = barWidth * 1 + '%'
+                confirm("Your 'Tama' passed away :(")
+            })
+        } else {
+            barWidth++;
+            playBar.style.width = barWidth + '%';
+            playBar.innerHTML = barWidth * 1 + '%';
+
+        }
+    }
+
+
+}
+
+playBtn.addEventListener('click', function () {
+    barWidth -= 5;
+    playBar.style.width = barWidth + '%'
+    playBar.innerHTML = barWidth * 1 + '%'
+})
+
+// ( MVP )
+function renderEatBar() {
+
+    //bar starts from 0% and increment to 100% when browser loads
+    //formula from W3 schools webpage: progress bar center
+
+    let eatBar = document.getElementById("eatBar")
     let barStart = setInterval(frame, 200);
     function frame() {
         if (playBarWidth >= 100) {
@@ -194,39 +223,16 @@ function renderPlayBar() {
         }
     }
     console.log(playBar.innerText)
-    if( playBarWidth == playBar.innerText) {
+    if (playBarWidth == playBar.innerText) {
     }
-    
+
 }
 
-playBtn.addEventListener('click', function() {
-    playBarWidth -= 5;
-     playBar.style.width = playBarWidth + '%'
-     playBar.innerHTML = playBarWidth * 1 + '%'
-      console.log('click')
+eatBtn.addEventListener('click', function () {
+    barWidth -= 5;
+    playBar.style.width = barWidth + '%'
+    playBar.innerHTML = barWidth * 1 + '%'
 })
-
-// ( MVP )
-function renderEatBar() {
-
-    //bar starts from 0% and increment to 100% when browser loads
-    //formula from W3 schools webpage: progress bar center
-
-    let eatBar = document.getElementById("eatBar");
-    let eatBarWidth = 0;
-    let barStart = setInterval(frame, 200);
-    function frame() {
-        if (eatBarWidth >= 100) {
-            clearInterval(barStart)
-            confirm("Your Tama passed away :(")
-        } else {
-            eatBarWidth++;
-            eatBar.style.width = eatBarWidth + '%';
-            eatBar.innerHTML = eatBarWidth * 1 + '%';
-
-        }
-    }
-}
 
 // ( MVP )
 function renderCleanBar() {
@@ -234,23 +240,31 @@ function renderCleanBar() {
     //bar starts from 0% and increment to 100% when browser loads
     //formula from W3 schools webpage: progress bar center
 
-    let cleanBar = document.getElementById("cleanBar");
-    let cleanBarWidth = 0;
+    let cleanBar = document.getElementById("cleanBar")
     let barStart = setInterval(frame, 200);
     function frame() {
-        if (cleanBarWidth >= 100) {
+        if (barWidth >= 100) {
+            barWidth = cleanBar
             clearInterval(barStart)
-            confirm("Your Tama passed away :(")
+           
+                
+            confirm("Your 'Tama' passed away :(")
         } else {
-            cleanBarWidth++;
-            cleanBar.style.width = cleanBarWidth + '%';
-            cleanBar.innerHTML = cleanBarWidth * 1 + '%';
-
+            barWidth++;
+            cleanBar.style.width = barWidth + '%';
+            cleanBar.innerHTML = barWidth * 1 + '%';
 
         }
     }
 
 
 }
+
+cleanBtn.addEventListener('click', function () {
+    barWidth -= 5;
+    cleanBar.style.width = barWidth + '%'
+    cleanBar.innerHTML = barWidth * 1 + '%'
+})
+
 
 init()

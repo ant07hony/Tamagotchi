@@ -1,1 +1,0 @@
-the  (<button class="pottyBtn" onclick="move()">) onclick attribute function move() operates with any click. Need to set a setTimeout() to null the onlclick and use Event Listener clicks to 
