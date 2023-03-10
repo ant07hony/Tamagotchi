@@ -57,7 +57,31 @@ h1 {
     
 }
 
-#cleanBar, #eatBar, #playBar {
+#cleanBar {
+    display: flex;
+    max-width: 390px;
+    border: 1px solid black;
+    background-color: lightgray;
+    text-align: right;
+    padding: 0 20px 0 20px;
+    margin: 0 10px;
+    align-content: center;
+    justify-content: center;
+} 
+
+#eatBar {
+    display: flex;
+    max-width: 390px;
+    border: 1px solid black;
+    background-color: lightgray;
+    text-align: right;
+    padding: 0 20px 0 20px;
+    margin: 0 10px;
+    align-content: center;
+    justify-content: center;
+} 
+
+#playBar {
     display: flex;
     max-width: 390px;
     border: 1px solid black;
