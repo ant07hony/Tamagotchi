@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    border: solid red;
+    /* border: solid red; */
 } 
 
 body {
@@ -33,6 +33,7 @@ h1 {
 }
 
 #fun {
+    display: grid;
     border: 2px solid black;
     padding: 10px;
     
@@ -45,31 +46,31 @@ h1 {
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    justify-content: baseline;
-    padding: 2px;
     
 }
 
-.h3 {
+.playH3, .eatH3, .cleanH3 {
     width: 15%;
-    justify-content: flex-end;
-    margin: 0 10px 0 0;
+    margin: 0 10px;
     text-align: center;
     
+    
 }
-/* .bar */ #cleanBar, #eatBar, #playBar {
-    display: inline-block;
-    width: 90%;
+
+#cleanBar, #eatBar, #playBar {
+    display: flex;
+    max-width: 390px;
     border: 1px solid black;
     background-color: lightgray;
-    text-align: center;
+    text-align: right;
     padding: 0 20px 0 20px;
     margin: 0 10px;
+    align-content: center;
 } 
 
 #playBtn, #eatBtn, #cleanBtn {
     text-align: center;
     justify-content: space-between;
-    margin: 0;
-    width: 10%;
+    margin: 3px;
+    width: 11%;
 }

@@ -7,6 +7,7 @@ const faces = {
 
 
 
+
 /*----- state variables -----*/
 
 // play, eat and clean btn variables 
@@ -23,25 +24,20 @@ const btns = document.querySelectorAll('button')
 const bar = document.querySelectorAll('#bar')
 
 //variables for each individual buttons
-const playBtn = document.querySelector('.playBtn')
-const eatBtn = document.querySelector('.eatBtn')
-const cleanBtn = document.querySelector('.cleanBtn')
+const playBtn = document.querySelector('#playBtn')
+const eatBtn = document.querySelector('#eatBtn')
+const cleanBtn = document.querySelector('#cleanBtn')
 
 
 //variables for DOM
-const name = document.querySelector('#name').innerHTML = 'Name:'
 const playText = document.querySelector('.playH3').innerHTML = 'Play!'
 const eatText = document.querySelector('.eatH3').innerHTML = 'Eat!'
 const cleanText = document.querySelector('.cleanH3').innerHTML = 'Clean!'
 
-const cleanBar = document.getElementById('cleanBar')
-
-
-
 /*----- event listeners -----*/
 //event listener for all buttons to add time to eachs respective bar
 
-//playBtn.addEventListener('click', renderPlayBtn)
+// playBtn.addEventListener('click', renderPlayBtn)
 
 // eatBtn.addEventListener('click', handleClick)
 
@@ -53,6 +49,11 @@ const cleanBar = document.getElementById('cleanBar')
 function init() {
     console.log('init works')
 
+    const tamaFace = document.querySelector('.image')
+    tamaFace.innerText = faces['happy']
+
+
+
     render()
 }
 
@@ -61,10 +62,10 @@ function render() {
 
     //folder for all renders
 
-    renderFace()
-    renderName()   //-----works but is annoying in development while making    changes 
+    //renderFace()
+    //renderName()   //-----works but is annoying in development while making    changes 
     renderAge()
-    //  renderPlayBtn()
+    renderPlayBtn()
     //  renderEatbtn()
     //  renderCleanBtn()
     // renderCleanBar()
@@ -79,13 +80,14 @@ function renderFace() {
 
     //healthy happy face
 
-        function startFace() {
+    function startFace() {
         const tamaFace = document.querySelector('.image')
         tamaFace.innerText = faces['happy']
 
         // const tamaFace = document.querySelector('.image')
         // tamaFace.innerText = faces['angry']
     }
+    render()
 
 }
 
@@ -95,6 +97,9 @@ function renderName() {
     const name = prompt(" Welcome to Tamagotchi Survivor. Please name your 'Tama' ")
     if (name != null) {
         document.getElementById('name').innerHTML = "Name: " + name
+    } else {
+        alert(" Have a nice day! ")
+
     }
 
 
@@ -102,19 +107,34 @@ function renderName() {
 
 // ( NOT MVP ) 
 function renderAge() {
-    //timer to record how long tamagotchi is alive(NOT MVP)
+    //timer to record how long tamagotchi is alive
 
 }
 
 // ( MVP )
 function renderPlayBtn() {
-    //when clicked, will decrease the playBar 5%(MVP)
-    function barDecrement() {
-        let playBarWidth = document.getElementById('playBar')
+    //when clicked, will decrease the playBar 5%
+    //playBarBtn is a string
+    //pBBtn is a string
+    // console.log(typeof pBBtn) typeof playBarBtn === 'number' && 
+    let playBarBtn = document.querySelector('#playBar').getAttribute('style')
+    const playBtn = document.querySelector('#playBtn')
+
+    let pBBtn = document.querySelector('#playBar').innerHTML
+    if (pBBtn < 100) {
+         pBBtn = pBBtn - 5 + '%'
+         pBBtn--
+         pBBtn.style.width = playBarWidth + '%';
+         playBar.innerHTML = playBarWidth % 1 + '%';
+    }
+    
+}
 
 
-}
-}
+
+
+
+
 
 // ( MVP )
 function renderEatbtn() {
@@ -148,33 +168,35 @@ function renderCleanBtn() {
 } //not complete
 
 // ( MVP )
+
+let playBarWidth = 0;
+let barStart
+
 function renderPlayBar() {
 
     //bar starts from 0% and increment to 100% when browser loads
     //formula from W3 schools webpage: progress bar center
+    // playBtn.addEventListener('click', renderPlayBtn)
 
-    let playBar = document.getElementById("playBar");
-    let playBarWidth = 0;
+    let playBar = document.getElementById("playBar")
     let barStart = setInterval(frame, 200);
     function frame() {
         if (playBarWidth >= 100) {
+            playBarWidth = 0
             clearInterval(barStart)
-            let tomb = document.getElementById('name').value
-            if (confirm(tomb + " has passed!") == true ) {
-            } else {
-                confirm("Your tama has passed!")
-                render()
-            }
-        } if else {
+            confirm("Your 'Tama' passed away :(")
+        } else {
             playBarWidth++;
             playBar.style.width = playBarWidth + '%';
             playBar.innerHTML = playBarWidth * 1 + '%';
+
             
+
         }
     }
     
-    
-}
+    }
+
 
 // ( MVP )
 function renderEatBar() {
@@ -188,10 +210,7 @@ function renderEatBar() {
     function frame() {
         if (eatBarWidth >= 100) {
             clearInterval(barStart)
-            let tomb = document.getElementById('name').value
-            if (confirm(tomb + " has passed!") == true ) {
-                render()
-            }
+            confirm("Your Tama passed away :(")
         } else {
             eatBarWidth++;
             eatBar.style.width = eatBarWidth + '%';
@@ -200,7 +219,6 @@ function renderEatBar() {
         }
     }
 }
-
 
 // ( MVP )
 function renderCleanBar() {
@@ -214,15 +232,12 @@ function renderCleanBar() {
     function frame() {
         if (cleanBarWidth >= 100) {
             clearInterval(barStart)
-            let tomb = document.getElementById('name').value
-            if (confirm(tomb + " has passed!") == true ) {
-                render()
-            }
+            confirm("Your Tama passed away :(")
         } else {
             cleanBarWidth++;
             cleanBar.style.width = cleanBarWidth + '%';
             cleanBar.innerHTML = cleanBarWidth * 1 + '%';
-            
+
 
         }
     }
