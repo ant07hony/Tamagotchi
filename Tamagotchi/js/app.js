@@ -37,7 +37,7 @@ const cleanText = document.querySelector('.cleanH3').innerHTML = 'Clean!'
 /*----- event listeners -----*/
 //event listener for all buttons to add time to eachs respective bar
 
-// playBtn.addEventListener('click', renderPlayBtn)
+//playBtn.addEventListener('click', renderPlayBar)
 
 // eatBtn.addEventListener('click', handleClick)
 
@@ -68,7 +68,7 @@ function render() {
     renderPlayBtn()
     //  renderEatbtn()
     //  renderCleanBtn()
-    // renderCleanBar()
+    //renderCleanBar()
     renderPlayBar()
     // renderEatBar()
 
@@ -120,13 +120,13 @@ function renderPlayBtn() {
     let playBarBtn = document.querySelector('#playBar').getAttribute('style')
     const playBtn = document.querySelector('#playBtn')
 
-    let pBBtn = document.querySelector('#playBar').innerHTML
-    if (pBBtn < 100) {
-         pBBtn = pBBtn - 5 + '%'
-         pBBtn--
-         pBBtn.style.width = playBarWidth + '%';
-         playBar.innerHTML = playBarWidth % 1 + '%';
-    }
+    // let pBBtn = document.querySelector('#playBar').innerHTML
+    // if (pBBtn < 100) {
+    //      pBBtn = pBBtn - 5 + '%'
+    //      pBBtn--
+    //      pBBtn.style.width = playBarWidth + '%';
+    //      playBar.innerHTML = playBarWidth % 1 + '%';
+    // }
     
 }
 
@@ -172,6 +172,7 @@ function renderCleanBtn() {
 let playBarWidth = 0;
 let barStart
 
+
 function renderPlayBar() {
 
     //bar starts from 0% and increment to 100% when browser loads
@@ -182,21 +183,28 @@ function renderPlayBar() {
     let barStart = setInterval(frame, 200);
     function frame() {
         if (playBarWidth >= 100) {
-            playBarWidth = 0
+            playBarWidth = playBar
             clearInterval(barStart)
             confirm("Your 'Tama' passed away :(")
         } else {
             playBarWidth++;
             playBar.style.width = playBarWidth + '%';
             playBar.innerHTML = playBarWidth * 1 + '%';
-
-            
-
+            // clearInterval(barStart)
         }
     }
-    
+    console.log(playBar.innerText)
+    if( playBarWidth == playBar.innerText) {
     }
+    
+}
 
+playBtn.addEventListener('click', function() {
+    playBarWidth -= 5;
+     playBar.style.width = playBarWidth + '%'
+     playBar.innerHTML = playBarWidth * 1 + '%'
+      console.log('click')
+})
 
 // ( MVP )
 function renderEatBar() {
