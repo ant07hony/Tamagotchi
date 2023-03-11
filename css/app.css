@@ -59,7 +59,7 @@ h1 {
 
 #cleanBar {
     display: flex;
-    max-width: 390px;
+    max-width: 100%;
     border: 1px solid black;
     background-color: lightgray;
     text-align: right;
@@ -71,7 +71,7 @@ h1 {
 
 #eatBar {
     display: flex;
-    max-width: 390px;
+    max-width: 100%;
     border: 1px solid black;
     background-color: lightgray;
     text-align: right;
@@ -83,7 +83,7 @@ h1 {
 
 #playBar {
     display: flex;
-    max-width: 390px;
+    max-width: 100%;
     border: 1px solid black;
     background-color: lightgray;
     text-align: right;
