@@ -6,7 +6,7 @@ const faces = {
     angry: '\( ͡> ෴ ͡<)/', //80-100%
 }
 
-const name = prompt(" Welcome to 'Gotchi Sitter! Care for your little tama and keep them happy or else they'll run away. Please name your new bundle of joy! ")
+// const name = prompt(" Welcome to 'Gotchi Sitter!\nYour task today is to take care a precious little Tama.\nTamas grow really fast and are very demanding.\nKeep them entertained, fed and clean or else they'll run away.\nYour job is complete when the Tama reaches age 5.\nGood luck and enjoy!\nGive the Tama a nickname (or not): ")
 
 
 
@@ -15,7 +15,7 @@ const name = prompt(" Welcome to 'Gotchi Sitter! Care for your little tama and k
 let playBarWidth = 0
 let eatBarWidth = 0
 let cleanBarWidth = 0
-counter = 0
+let counter = 0
 
 
 /*----- cached elements  -----*/
@@ -48,6 +48,8 @@ function init() {
 
     
     counter = 0
+
+    const name = prompt(" Welcome to 'Gotchi Sitter!\nYour task today is to take care a precious little Tama.\nTamas grow really fast and are very demanding.\nKeep them entertained, fed and clean or else they'll run away.\nYour job is complete when the Tama reaches age 5.\nGood luck and enjoy!\nGive the Tama a nickname (or not): ")
     
 
     render()
@@ -58,7 +60,7 @@ function render() {
 
     renderFace()
     renderName()
-    renderAge()
+    renderWinMessage()
     renderGameOverMessage()
     renderProgressBar()
 
@@ -94,71 +96,66 @@ function renderName() {
     
 }
 
+//logic for age timer and win message
  let timerAge = setInterval(age, 3000)
  function age() {
  if(counter <= 4) {
     counter++
     timerAgeEl.textContent = "Age: " + counter
- } else {
+ } else if (counter == 5) {
     clearInterval(timerAge)
+    clearInterval(barStart)
+    confirm(" Good job taking care of " + name)
+    playBtn.removeEventListener('click', playBarDecrement)
+    eatBtn.removeEventListener('click', eatBarDecrement)
+    cleanBtn.removeEventListener('click', cleanBarDecrement)
+    render()
  }
  }
 
-// ( STRETCH )---timer based function to display some age
-function renderAge() {
-    //timer to record age of tamagotchi
+// ( MVP )---win message for reaching age 5
+function renderWinMessage() {
+    //win message for reaching age 5
 
-    // counter++
-    
-    // if (counter <= 5) {
-    //     counter++
-    //     timerAgeEl.textContent = "Age: " + counter
-    //     clearInterval(timerAge);
-    //   } 
-        
-    
-    // if(counter >= 5 ) {
-    //     confirm()
-    //     timerAgeEl.textContent = "Age: " + counter
-    // } else {
+    // if (counter == 5) {
     //     clearInterval(timerAge)
-
-    // }
-    
-
-
-    
-
-    
+    //     confirm(" Good job taking care of " + name)
+    //     playBtn.removeEventListener('click', playBarDecrement)
+    //     eatBtn.removeEventListener('click', eatBarDecrement)
+    //     cleanBtn.removeEventListener('click', cleanBarDecrement)
+    //  }
 
 }
 
 
 
-// ---game logic for game over message
+// (MVP)---game logic for game over message
 function renderGameOverMessage() {
     if ((playBarWidth >= 100 || eatBarWidth >= 100 || cleanBarWidth >= 100) == true ) {
-
         return confirm(" Oh no! " + name + " ran away ")
+        render()
     }
+    
 }
+
+let barStart = setInterval(renderProgressBar, 100)
 
 // ( MVP )---game logic for progress bar functionality
 function renderProgressBar() {
-
+    
     //bar starts from 0% and increment to 100% when browser loads
     //formula from W3 schools webpage: progress bar center
     
-
+    
     let playBar = document.getElementById("playBar")
     let eatBar = document.getElementById("eatBar")
     let cleanBar = document.getElementById("cleanBar")
+    
+    // let barStart = setInterval(frame, 100)
 
-    let barStart = setInterval(frame, 100)
-
-    function frame() {
         if (playBarWidth >= 100) {
             clearInterval(barStart)
+            clearInterval(timerAge)
             renderGameOverMessage()
             playBtn.removeEventListener('click', playBarDecrement)
             eatBtn.removeEventListener('click', eatBarDecrement)
@@ -171,6 +168,7 @@ function renderProgressBar() {
 
         if (cleanBarWidth >= 100) {
             clearInterval(barStart)
+            clearInterval(timerAge)
             renderGameOverMessage()
             playBtn.removeEventListener('click', playBarDecrement)
             eatBtn.removeEventListener('click', eatBarDecrement)
@@ -183,6 +181,7 @@ function renderProgressBar() {
 
         if (eatBarWidth >= 100) {
             clearInterval(barStart)
+            clearInterval(timerAge)
             renderGameOverMessage()
             playBtn.removeEventListener('click', playBarDecrement)
             eatBtn.removeEventListener('click', eatBarDecrement)
@@ -192,7 +191,7 @@ function renderProgressBar() {
             eatBar.style.width = eatBarWidth + '%';
             eatBar.innerHTML = eatBarWidth * 1 + '%';
         }
-    }
+    
 }
 
 // (MVP )---Event listener for play button to decrement the play bar
