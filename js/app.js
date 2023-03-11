@@ -8,17 +8,20 @@ const faces = {
 
 const name = prompt(" Welcome to 'Gotchi Sitter! Care for your little tama and keep them happy or else they'll run away. Please name your new bundle of joy! ")
 
+
+
 /*----- state variables -----*/
 //global scopes incrementing and decrementing
 let playBarWidth = 0
 let eatBarWidth = 0
 let cleanBarWidth = 0
-
+counter = 0
 
 
 /*----- cached elements  -----*/
 
-let btns = document.querySelectorAll('button')
+//cache for timer (age)
+let timerAgeEl = document.querySelector('#age')
 
 //cache for each individual button
 let playBtn = document.querySelector('#playBtn')
@@ -41,6 +44,10 @@ function init() {
     const tamaFace = document.querySelector('.image')
     tamaFace.innerText = faces['happy']
 
+    document.getElementById('age').innerHTML = 'Age: '
+
+    
+    counter = 0
     
 
     render()
@@ -87,10 +94,42 @@ function renderName() {
     
 }
 
+ let timerAge = setInterval(age, 3000)
+ function age() {
+ if(counter <= 4) {
+    counter++
+    timerAgeEl.textContent = "Age: " + counter
+ } else {
+    clearInterval(timerAge)
+ }
+ }
 
 // ( STRETCH )---timer based function to display some age
 function renderAge() {
-    //timer to record how long tamagotchi is alive
+    //timer to record age of tamagotchi
+
+    // counter++
+    
+    // if (counter <= 5) {
+    //     counter++
+    //     timerAgeEl.textContent = "Age: " + counter
+    //     clearInterval(timerAge);
+    //   } 
+        
+    
+    // if(counter >= 5 ) {
+    //     confirm()
+    //     timerAgeEl.textContent = "Age: " + counter
+    // } else {
+    //     clearInterval(timerAge)
+
+    // }
+    
+
+
+    
+
+    
 
 }
 
