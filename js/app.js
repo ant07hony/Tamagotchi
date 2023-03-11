@@ -108,7 +108,11 @@ function renderPlayBar() {
     function frame() {
         if (playBarWidth >= 100) {
             clearInterval(barStart)
-            confirm("[name] passed away :(")
+            if (confirm("[name] passed away :(") == true) {
+                init()
+            } else {
+                init()
+            }
         } else {
             playBarWidth++;
             playBar.style.width = playBarWidth + '%';
@@ -135,8 +139,11 @@ function renderEatBar() {
     let barStart = setInterval(frame, 100);
     function frame() {
         if (eatBarWidth >= 100) {
-            clearInterval(barStart)
-            confirm("[name: ...] passed away :(")
+            if (confirm("[name] passed away :(") == true) {
+                init()
+            } else {
+                init()
+            }
         } else {
             eatBarWidth++;
             eatBar.style.width = eatBarWidth + '%';
@@ -166,8 +173,11 @@ function renderCleanBar() {
     let barStart = setInterval(frame, 100);
     function frame() {
         if (cleanBarWidth >= 100) {
-            clearInterval(barStart)
-            confirm("[name: ...] passed away :(")
+            if (confirm("[name] passed away :(") == true) {
+                init()
+            } else {
+                init()
+            }
         } else {
             cleanBarWidth++;
             cleanBar.style.width = cleanBarWidth + '%';
