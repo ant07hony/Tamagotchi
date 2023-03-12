@@ -1,11 +1,12 @@
 * {
     box-sizing: border-box;
-    /* border: solid red; */
+    border: solid red;
 } 
 
 body {
     margin: 10 px;
     font-family: Helvetica;
+    border: 5px solid black;
   }
 
 /*---------- tamagotchi view title ----------*/
@@ -21,15 +22,20 @@ h1 {
 #name, #age { 
     display: inline-flex;
     width: 40%;
-    margin: 10px;
-    
+    margin: 0 0 0 140px;   
+}
+
+.inputTimer {
+    display: ;
+    text-align: center;
 }
 
 .image {
-    padding: 100px;
+    padding: 80px;
     text-align: center;
-    border-bottom: 2px solid black;
-    font-size: 50px;
+    border: 2px solid black;
+    font-size: 70px;
+    margin: 10px 100px;
 }
 
 #fun {
