@@ -32,7 +32,7 @@ Technologies Used:
  https://ant07hony.github.io/Tamagotchi/
 
  Instructions:
- Use the PLAY, EAT and CLEAN buttons to interact with your Tama and keep the meters low. If any meter reaches 100%, your Tama is running away and its GAME OVER! If game over reload the page and try again...if you dare.
+ Utilize the PLAY, EAT and CLEAN buttons to interact with your Tama and keep the meters low. Low meters equal happy Tama. Should any of the meter s reach 100%, your Tama will run away and it's GAME OVER! If game over reload the page and try again...if you dare.
 
  Icebox Items:
  - Tamagotchi movement
