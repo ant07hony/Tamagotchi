@@ -4,7 +4,7 @@ const faces = {
     happy: '\( ͡๑ ω ͡๑)/', 
 }
 
-let name = prompt(" Welcome to 'Gotchi Sitter!\nYour task today is to take care a precious little Tama.\nTamas grow really fast and are very demanding.\nKeep them entertained, fed and clean or else they'll run away.\nYour job is complete when the Tama reaches age 5.\nGood luck and enjoy!\nGive the Tama a nickname (or not): ")
+let name = prompt(" Welcome to 'Gotchi Sitter!\nYour task today is to take care of a precious little Tama.\nTamas grow really fast and are very demanding.\nKeep them entertained, fed and clean or else they'll run away.\nYour job is complete when the Tama reaches age 5.\nGood luck and enjoy!\nGive the Tama a nickname (or not): ")
 
 
 
