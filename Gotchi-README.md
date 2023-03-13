@@ -27,12 +27,20 @@ Technologies Used:
  CSS
  JAVASCRIPT
 
+ Resources:
+ W3 School - progress bar
+ https://www.w3schools.com/w3css/w3css_progressbar.asp
+
+ Text Images:
+ F Symbols
+ https://fsymbols.com/
+
  Getting Started:
  -link to deployed game - 
  https://ant07hony.github.io/Tamagotchi/
 
  Instructions:
- Utilize the PLAY, EAT and CLEAN buttons to interact with your Tama and keep the meters low. Low meters equal happy Tama. Should any of the meter s reach 100%, your Tama will run away and it's GAME OVER! If game over reload the page and try again...if you dare.
+ Utilize the PLAY, EAT and CLEAN buttons to interact with your Tama and keep the meters low. Low meters equal happy Tama. Should any of the meters reach 100%, your Tama will run away and it's GAME OVER! If game over reload the page and try again...if you dare.
 
  Icebox Items:
  - Tamagotchi movement

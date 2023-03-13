@@ -1,7 +1,7 @@
 /*----- constants -----*/
 
 const faces = {
-    happy: '\( ͡๑ ω ͡๑)/', 
+    happy: '\( ͡๑ ω ͡๑)/',
 }
 
 let name = prompt(" Welcome to 'Gotchi Sitter!\nYour task today is to take care of a precious little Tama.\nTamas grow really fast and are very demanding.\nKeep them entertained, fed and clean or else they'll run away.\nYour job is complete when the Tama reaches age 5.\nGood luck and enjoy!\nGive the Tama a nickname (or not): ")
@@ -48,16 +48,14 @@ function init() {
 
     document.getElementById('age').innerHTML = 'Age: 0'
 
-    
     tamaFace.textContent = faces['happy']
-    
 
     name
 
     counter = 0
 
     tamaName()
-    
+
 }
 
 // ( MVP )---ability to name Tamagotchi....or not
@@ -68,7 +66,6 @@ function tamaName() {
     } else {
         document.getElementById('name').innerHTML = "Name: "
     }
-
 }
 
 // (MVP)---logic for age timer and win message
@@ -83,16 +80,16 @@ function age() {
         confirm(" Good job taking care of " + name + '!')
         playBtn.removeEventListener('click', playBarDecrement)
         eatBtn.removeEventListener('click', eatBarDecrement)
-        cleanBtn.removeEventListener('click', cleanBarDecrement)  
+        cleanBtn.removeEventListener('click', cleanBarDecrement)
     }
-    
+
 }
 
 // (MVP)---game logic for game over message
 function gameOverMessage() {
     if ((playBarWidth >= 100 || eatBarWidth >= 100 || cleanBarWidth >= 100) == true) {
         return confirm(" Oh no! " + name + " ran away! ")
-        
+
     }
 
 }
@@ -104,7 +101,7 @@ const barStart = setInterval(progressBar, 95)
 function progressBar() {
 
     //bar starts from 0% and increment to 100% when browser loads
-        //formula from W3 schools webpage: progress bar center
+    
 
     if (playBarWidth >= 100) {
         clearInterval(barStart)
@@ -145,7 +142,7 @@ function progressBar() {
         eatBar.innerHTML = eatBarWidth * 1 + '%';
     }
 
-    if(cleanBar <= 50) {
+    if (cleanBar <= 50) {
         tamaFace.innerHTML = faces['angry']
     }
 }

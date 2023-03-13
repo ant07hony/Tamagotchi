@@ -24,6 +24,7 @@ h1 {
     padding: 10px;
     background-color: rgba(134, 112, 67, 0.575)
 }
+
 #ramport-one {
     font-family: 'Rampart One', cursive;
     color: black;
@@ -44,7 +45,6 @@ h1 {
 
 .inputTimer {
     display: flex;
-
 }
 
 .image {
@@ -64,17 +64,13 @@ h1 {
     background-color: rgba(134, 112, 67, 0.575);
     border-bottom-right-radius: 25px;
     border-bottom-left-radius: 25px;
-    
 }
-
-
 
 #clean, #eat, #play {
     display: flex;
     width: 100%;
     align-items: center;
-    justify-content: space-between;
-    
+    justify-content: space-between;  
 }
 
 .playH3, .eatH3, .cleanH3 {
