@@ -95,7 +95,7 @@ function gameOverMessage() {
 }
 
 //interval for progress bar
-const barStart = setInterval(progressBar, 95)
+const barStart = setInterval(progressBar, 150)
 
 // ( MVP )---game logic for progress bar functionality
 function progressBar() {
