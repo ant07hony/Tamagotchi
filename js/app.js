@@ -1,12 +1,10 @@
 /*----- constants -----*/
 
 const faces = {
-    happy: '\( ͡๑ ω ͡๑)/', //0-49%
-    sad: '  \( ͡> ﹏ ͡<)/', //50-79%
-    angry: '\( ͡> ෴ ͡<)/', //80-100%
+    happy: '\( ͡๑ ω ͡๑)/', 
 }
 
-// let name = prompt(" Welcome to 'Gotchi Sitter!\nYour task today is to take care a precious little Tama.\nTamas grow really fast and are very demanding.\nKeep them entertained, fed and clean or else they'll run away.\nYour job is complete when the Tama reaches age 5.\nGood luck and enjoy!\nGive the Tama a nickname (or not): ")
+let name = prompt(" Welcome to 'Gotchi Sitter!\nYour task today is to take care a precious little Tama.\nTamas grow really fast and are very demanding.\nKeep them entertained, fed and clean or else they'll run away.\nYour job is complete when the Tama reaches age 5.\nGood luck and enjoy!\nGive the Tama a nickname (or not): ")
 
 
 
@@ -31,9 +29,9 @@ let eatBtn = document.querySelector('#eatBtn')
 let cleanBtn = document.querySelector('#cleanBtn')
 
 //cache for Play! , Eat! , Clean! on screen
-let playText = document.querySelector('.playH3').innerHTML = 'Play!'
-let eatText = document.querySelector('.eatH3').innerHTML = 'Eat!'
-let cleanText = document.querySelector('.cleanH3').innerHTML = 'Clean!'
+let playText = document.querySelector('.playH3').innerHTML = 'P L A Y !'
+let eatText = document.querySelector('.eatH3').innerHTML = 'E A T !'
+let cleanText = document.querySelector('.cleanH3').innerHTML = 'C L E A N !'
 
 let playBar = document.querySelector('#playBar')
 let eatBar = document.querySelector('#eatBar')
@@ -41,7 +39,7 @@ let cleanBar = document.querySelector('#cleanBar')
 
 
 /*----- event listeners -----*/
-//located line: 158 - 181
+//located line: 155 - 178
 
 
 /*----- functions -----*/
@@ -82,7 +80,7 @@ function age() {
     } else if (counter == 5) {
         clearInterval(timerAge)
         clearInterval(barStart)
-        confirm(" Good job taking care of " + name)
+        confirm(" Good job taking care of " + name + '!')
         playBtn.removeEventListener('click', playBarDecrement)
         eatBtn.removeEventListener('click', eatBarDecrement)
         cleanBtn.removeEventListener('click', cleanBarDecrement)  
@@ -93,7 +91,7 @@ function age() {
 // (MVP)---game logic for game over message
 function gameOverMessage() {
     if ((playBarWidth >= 100 || eatBarWidth >= 100 || cleanBarWidth >= 100) == true) {
-        return confirm(" Oh no! " + name + " ran away ")
+        return confirm(" Oh no! " + name + " ran away! ")
         
     }
 
@@ -106,12 +104,12 @@ const barStart = setInterval(progressBar, 95)
 function progressBar() {
 
     //bar starts from 0% and increment to 100% when browser loads
-    //formula from W3 schools webpage: progress bar center
+        //formula from W3 schools webpage: progress bar center
 
     if (playBarWidth >= 100) {
         clearInterval(barStart)
         clearInterval(timerAge)
-        // gameOverMessage()
+        gameOverMessage()
         playBtn.removeEventListener('click', playBarDecrement)
         eatBtn.removeEventListener('click', eatBarDecrement)
         cleanBtn.removeEventListener('click', cleanBarDecrement)
@@ -124,7 +122,7 @@ function progressBar() {
     if (cleanBarWidth >= 100) {
         clearInterval(barStart)
         clearInterval(timerAge)
-        // gameOverMessage()
+        gameOverMessage()
         playBtn.removeEventListener('click', playBarDecrement)
         eatBtn.removeEventListener('click', eatBarDecrement)
         cleanBtn.removeEventListener('click', cleanBarDecrement)
@@ -137,7 +135,7 @@ function progressBar() {
     if (eatBarWidth >= 100) {
         clearInterval(barStart)
         clearInterval(timerAge)
-        // gameOverMessage()
+        gameOverMessage()
         playBtn.removeEventListener('click', playBarDecrement)
         eatBtn.removeEventListener('click', eatBarDecrement)
         cleanBtn.removeEventListener('click', cleanBarDecrement)
